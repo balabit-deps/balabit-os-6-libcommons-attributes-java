@@ -1,0 +1,29 @@
+#!/usr/bin/make -f
+
+include /usr/share/cdbs/1/class/ant.mk
+include /usr/share/cdbs/1/rules/debhelper.mk
+
+POM_VERSION          := 2.1
+MAVEN_REPO           := http://repository.sonatype.org/service/local/repositories/central/content
+
+JAVA_HOME            := /usr/lib/jvm/default-java
+DEB_ANT_BUILD_TARGET := javadoc
+DEB_JARS             := qdox
+
+install/libcommons-attributes-java::
+	mh_installpoms -plibcommons-attributes-java
+	mh_installjar -plibcommons-attributes-java -l debian/poms/api.xml target/commons-attributes-api-$(DEB_UPSTREAM_VERSION).jar
+	mh_installjar -plibcommons-attributes-java -l debian/poms/compiler.xml target/commons-attributes-compiler-$(DEB_UPSTREAM_VERSION).jar
+	mh_installjar -plibcommons-attributes-java -l debian/poms/plugin.xml target/commons-attributes-plugin-$(DEB_UPSTREAM_VERSION).jar
+
+clean::
+	-rm -rf debian/tmp
+
+get-orig-source:
+	-uscan --upstream-version 0
+
+get-orig-pom:
+	wget -O debian/poms/api.xml $(MAVEN_REPO)/commons-attributes/commons-attributes-api/$(POM_VERSION)/commons-attributes-api-$(POM_VERSION).pom
+	wget -O debian/poms/compiler.xml $(MAVEN_REPO)/commons-attributes/commons-attributes-compiler/$(POM_VERSION)/commons-attributes-compiler-$(POM_VERSION).pom
+	wget -O debian/poms/plugin.xml $(MAVEN_REPO)/commons-attributes/commons-attributes-plugin/$(POM_VERSION)/commons-attributes-plugin-$(POM_VERSION).pom
+	perl -p -i -e 's/<version>$(POM_VERSION)/<version>$(DEB_UPSTREAM_VERSION)/' debian/poms/*.xml

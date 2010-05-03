@@ -1,0 +1,6 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>commons-attributes</groupId>
+  <artifactId>commons-attributes-plugin</artifactId>
+  <version>2.2</version>
+</project>

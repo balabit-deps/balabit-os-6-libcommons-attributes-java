@@ -1,0 +1,40 @@
+Description: Fix compatibility with QDox 1.9
+ "
+  In both JavaClass and JavaSource the getPackage() returns an object of
+  type JavaPackage instead of a String. To get the same result as before
+  use getPackage().getName().
+ "
+ <http://qdox.codehaus.org/upgrade.html>
+Author: Damien Raude-Morvan <drazzib@drazzib.com>
+Last-Update: 2009-08-09
+--- a/compiler/src/java/org/apache/commons/attributes/compiler/AttributeCompiler.java
++++ b/compiler/src/java/org/apache/commons/attributes/compiler/AttributeCompiler.java
+@@ -39,6 +39,7 @@
+ import com.thoughtworks.qdox.model.JavaMethod;
+ import com.thoughtworks.qdox.model.DocletTag;
+ import com.thoughtworks.qdox.model.JavaParameter;
++import com.thoughtworks.qdox.model.JavaPackage;
+ 
+ 
+ /**
+@@ -241,9 +242,11 @@
+         String packageName = null;
+         String className = null;
+         
+-        packageName = javaClass.getPackage ();
+-        if (packageName == null) {
++        JavaPackage packagez = javaClass.getPackage();
++        if (packagez == null || packagez.getName() == null) {
+             packageName = "";
++        } else {
++            packageName = packagez.getName();
+         }
+         
+         if (javaClass.isInner ()) {
+@@ -523,4 +526,4 @@
+         }
+         return false;
+     }
+-}
+\ No newline at end of file
++}

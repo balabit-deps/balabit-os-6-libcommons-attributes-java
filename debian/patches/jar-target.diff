@@ -1,0 +1,13 @@
+Index: libcommons-attributes-java-2.2/build.xml
+===================================================================
+--- libcommons-attributes-java-2.2.orig/build.xml	2008-08-24 18:14:10.000000000 +0200
++++ libcommons-attributes-java-2.2/build.xml	2008-08-24 18:14:26.000000000 +0200
+@@ -69,7 +69,7 @@
+             </classpath>
+         </javac>
+         <copy todir="${classesdir}">
+-            <fileset dir="api/src/java">
++            <fileset dir="compiler/src/java">
+                 <include name="**/*.dtd">
+                 </include>
+                 <include name="**/*.properties">

@@ -1,0 +1,3 @@
+debian/poms/api.xml
+debian/poms/compiler.xml
+debian/poms/plugin.xml

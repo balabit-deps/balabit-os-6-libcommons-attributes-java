@@ -1,0 +1,29 @@
+Source: libcommons-attributes-java
+Section: java
+Priority: extra
+Maintainer: Debian Java Maintainers <pkg-java-maintainers@lists.alioth.debian.org>
+Uploaders: Torsten Werner <twerner@debian.org>, Damien Raude-Morvan <drazzib@debian.org>
+Build-Depends: ant, cdbs, debhelper (>= 7), default-jdk, libqdox-java
+Build-Depends-Indep: maven-repo-helper
+Standards-Version: 3.8.3
+Homepage: http://commons.apache.org/attributes/
+Vcs-Svn: https://bollin.googlecode.com/svn/libcommons-attributes-java/trunk
+Vcs-Browser: http://bollin.googlecode.com/svn/libcommons-attributes-java/trunk
+
+Package: libcommons-attributes-java
+Architecture: all
+Depends: ${misc:Depends}, default-jre-headless | java2-runtime-headless
+Description: adds C#/.Net-style attributes to Java code
+ The Apache Jakarta Commons Attributes library enables Java programmers
+ to use C#/.Net-style attributes in their code.
+
+Package: libcommons-attributes-java-doc
+Architecture: all
+Section: doc
+Depends: ${misc:Depends}
+Suggests: libcommons-attributes-java
+Description: adds C#/.Net-style attributes to Java code - documentation
+ The Apache Jakarta Commons Attributes library enables Java programmers
+ to use C#/.Net-style attributes in their code.
+ .
+ This package contains API documentation (Javadoc) of Commons Attributes.

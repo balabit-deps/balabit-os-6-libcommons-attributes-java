@@ -1,0 +1,8 @@
+Document: libcommons-attributes-java
+Title: adds C#/.Net-style attributes to Java code
+Author: The Apache Software Foundation
+Section: Programming
+
+Format: HTML
+Index: /usr/share/doc/libcommons-attributes-java/api/index.html
+Files: /usr/share/doc/libcommons-attributes-java/api/*.html

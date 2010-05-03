@@ -1,0 +1,80 @@
+libcommons-attributes-java (2.2-8) unstable; urgency=low
+
+  [ Thierry Carrez ]
+  * debian/control: Set minimal depend to java2-runtime-headless since java2
+    code is built (target=1.4) and this does not require GUI classes
+
+  [ Torsten Werner ]
+  * Switch to source format 3.0.
+
+ -- Torsten Werner <twerner@debian.org>  Mon, 03 May 2010 20:48:23 +0200
+
+libcommons-attributes-java (2.2-7) unstable; urgency=low
+
+  * New libcommons-attributes-java-doc package:
+    - Install API Javadoc to /usr/share/doc/libcommons-attributes-java/api/
+  * Update my email address
+  * Bump debhelper version to >= 7
+  * Remove unneeded ${shlibs:Depends} from Depends
+  * Bump Standards-Version to 3.8.3:
+    - Add debian/README.source to describe patch system
+  * Maven POMs:
+    - debian/control: add a Build-Depends-Indep dependency on maven-repo-helper
+    - debian/rules: use mh_installpoms and mh_installjar
+      to install the POM and the jar to the Maven repository
+    - debian/poms/*.xml: Debian pom.xml files as upstream doesn't provide any
+    - debian/rules: new get-orig-pom to update debian/poms/*.xml at new upstream
+      release.
+  * debian/copyright: Convert to DEP-5
+
+ -- Damien Raude-Morvan <drazzib@debian.org>  Tue, 24 Nov 2009 01:20:31 +0100
+
+libcommons-attributes-java (2.2-6) unstable; urgency=low
+
+  * Add myself as Uploaders
+  * Add new qdox_1.9.diff patch to fix compatibility with QDox 1.9
+    (Closes: #540682)
+  * Build-Depends on default-jdk instead of default-jdk-builddep
+    since we don't build a native GCJ package.
+  * Depends on default-jre-headless
+
+ -- Damien Raude-Morvan <drazzib@drazzib.com>  Sun, 09 Aug 2009 18:40:16 +0200
+
+libcommons-attributes-java (2.2-5) unstable; urgency=low
+
+  * Change Maintainer: Debian Java Maintainers.
+  * Update Standards-Version: 3.8.2 (no changes).
+  * Change Section: java.
+
+ -- Torsten Werner <twerner@debian.org>  Sun, 28 Jun 2009 21:22:08 +0200
+
+libcommons-attributes-java (2.2-4) unstable; urgency=low
+
+  * Merge patch from Andreas Schildbach into build.diff.
+    (Closes: #496000)
+
+ -- Torsten Werner <twerner@debian.org>  Sun, 23 Nov 2008 20:45:02 +0100
+
+libcommons-attributes-java (2.2-3) unstable; urgency=low
+
+  * Bump up Standards-Version: 3.8.0 (no changes needed).
+  * Switch from kaffe to default-jdk.
+  * Add patch jar-target.diff to correctly build the jar files.
+    (Closes: #496000)
+
+ -- Torsten Werner <twerner@debian.org>  Sun, 24 Aug 2008 18:14:53 +0200
+
+libcommons-attributes-java (2.2-2) unstable; urgency=low
+
+  * Update the download address to the new apache project 'commons'.
+    (Closes: #450245)
+  * Update Vcs and Homepage headers in debian/control.
+
+ -- Torsten Werner <twerner@debian.org>  Sun, 09 Dec 2007 10:06:25 +0100
+
+libcommons-attributes-java (2.2-1) unstable; urgency=low
+
+  * Initial release (Closes: #426298)
+
+ -- Torsten Werner <twerner@debian.org>  Sun, 27 May 2007 20:55:47 +0200
+

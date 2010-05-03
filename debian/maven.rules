@@ -1,0 +1,3 @@
+s/ant/org.apache.ant/ * * s/.*/debian/
+s/qdox/com.thoughtworks.qdox/ qdox jar s/.*/debian/
+
